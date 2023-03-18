@@ -6,7 +6,10 @@
 @layer base{
   body{
     @apply bg-[#141414] text-white;
-    
+    height: 200vh;
+  }
+  header{
+    @apply flex fixed top-0 z-50 w-full items-center justify-between px-4 py-4 transition-all lg:px-10  ;
   }
 }
 
