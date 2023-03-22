@@ -6,7 +6,7 @@ import { getServers } from 'dns';
 import { GetServerSideProps } from 'next';
 import { IMovie } from '../interfaces/app.interface';
 
-export default function Home({trending}: HomeProps): JSX.Element {
+export default function Home({trending, topReated}: HomeProps): JSX.Element {
   // useEffect(() => {
   //   fetch(API_REQUEST.trending)
   //   .then(res => res.json())
@@ -25,6 +25,7 @@ export default function Home({trending}: HomeProps): JSX.Element {
       <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
        {/* Hero */}
        <Hero trending={trending}/>
+       <Row title='Top Rated' movies={topReated} />
        <section>
         {/* Row */}
         {/* BigRow */}
@@ -38,7 +39,8 @@ export default function Home({trending}: HomeProps): JSX.Element {
 
 // SSR yozish
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  const trending = await fetch(API_REQUEST.trending).then(res => res.json())
+  const trending = await fetch(API_REQUEST.trending).then(res => res.json());
+  const topReated = await fetch(API_REQUEST.top_reted).then(res => res.json());
 
   // kirgandan poshqa page ga o'tib ketadi
   // if(trending.results.length) {
@@ -50,9 +52,11 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   return{
     props: {
       trending: trending.results,
+      topReated: topReated.results,
     }
   }
 }
 interface HomeProps {
   trending: IMovie[];
+  topReated: IMovie[]
 }

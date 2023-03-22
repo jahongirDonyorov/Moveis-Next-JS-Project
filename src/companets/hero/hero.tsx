@@ -24,7 +24,7 @@ const Hero = ({trending}: HeroProps):JSX.Element => {
         {/* image dameni bulishi kerak next.config ga qaysi damendan image olgan bulsak yozish kerak */}
       </div>
 
-      <div className='py-[4px] px-[8px] text-center rounded-bl-[8px] rounded-tr-[8px] bg-[#1d1d1d]/50 w-[111px] '>
+      <div className='py-[4px] px-[8px] text-center rounded-bl-[8px] rounded-tr-[8px] bg-[#e5e5e5]/50 w-[111px] '>
         {movie.media_type}
       </div>
 
