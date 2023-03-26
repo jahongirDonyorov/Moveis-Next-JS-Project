@@ -12,5 +12,9 @@ module.exports = {
     extend: {},
   },
   // plugins uzimiz qushdik
-  plugins: [require('tailwindcss-textshadow')],
+  plugins: [
+    require('tailwindcss-textshadow'),
+    require('tailwind-scrollbar-hide'),
+    require('tailwind-scrollbar')
+    ],
 }

@@ -5,7 +5,8 @@
 /* html body lar uchun global*/
 @layer base{
   body{
-    @apply bg-[#141414] text-white;
+    @apply bg-[#141414] text-white !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-[#e10856];
+    /* ! important manosini beradi */
   }
   header{
     @apply flex fixed top-0 z-50 w-full items-center justify-between px-4 py-4 transition-all lg:px-10  ;
@@ -19,4 +20,5 @@
     @apply cursor-pointer text-sm font-light text-[#fff] hover:text-[#b3b3b3];
   }
   /* shu holatda yozsak buladi uzimiz yaratgan classga TW css tylellarini css da bersak buladi @pply ichiga qiymatlarni yozaveramz */
+
 }

@@ -12,7 +12,6 @@ const Hero = ({trending}: HeroProps):JSX.Element => {
     const randomMovie = trending[Math.floor(Math.random() * trending.length)];
     setMovie(randomMovie)
   },[trending])
-
   return (
     <div className='flex flex-col space-y-2 py-20 md:space-y-4 lg:h-[65vh] lg:pb-12 lg:center'>
       <div className='absolute top-0 -z-50 left-0 h-[95vh] w-full'>

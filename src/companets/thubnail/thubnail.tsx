@@ -10,6 +10,7 @@ const Thubnail = ({movie}: ThubnailProps) => {
           alt={movie.title} 
           fill 
           className='rounded-sm md:rounded object-cover ' />
+          
     </div>
   )
 }
