@@ -6,8 +6,9 @@ export const API_REQUEST = {
   top_reted: `${base_url}/movie/top_rated?api_key=${api_key}&language=en-US`,
   tv_top_reted: `${base_url}/tv/top_rated?api_key=${api_key}&language=en-US`,
   popular: `${base_url}/movie/popular?api_key=${api_key}&language=en-US`,
-  documentary: `${base_url}/movie/upcoming?api_key=${api_key}&language=en-US&with_genre=99`,
-  comedy: `${base_url}/discover/movie?api_key=${api_key}&language=en-US&with_genre=35`,
-  family: `${base_url}/movie/upcoming?api_key=${api_key}&language=en-US&with_genre=10751`,
-  history: `${base_url}/discover/movie?api_key=${api_key}&language=en-US&with_genre=36`,
+  documentary: `${base_url}/discover/movie?api_key=${api_key}&language=en-US&with_genres=99`,
+  action: `${base_url}/discover/movie?api_key=${api_key}&language=en-US&with_genres=28`,
+  kids: `${base_url}/discover/movie?api_key=${api_key}&language=en-US&with_genres=16`,
+  horror: `${base_url}/discover/movie?api_key=${api_key}&language=en-US&with_genres=27`,
+  romance: `${base_url}/discover/movie?api_key=${api_key}&language=en-US&with_genres=10749`,
 }

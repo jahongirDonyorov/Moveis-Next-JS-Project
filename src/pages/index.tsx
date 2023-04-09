@@ -6,7 +6,17 @@ import { getServers } from 'dns';
 import { GetServerSideProps } from 'next';
 import { IMovie } from '../interfaces/app.interface';
 
-export default function Home({trending, topReated, tvTopReated, popular,documentary,comedy,family,history }: HomeProps): JSX.Element {
+export default function Home({
+  trending, 
+  topReated, 
+  tvTopReated, 
+  popular,
+  documentary,
+  Action,
+  kids,
+  horror,
+  romance
+}: HomeProps): JSX.Element {
   // useEffect(() => {
   //   fetch(API_REQUEST.trending)
   //   .then(res => res.json())
@@ -31,12 +41,13 @@ export default function Home({trending, topReated, tvTopReated, popular,document
         {/* BigRow */}
        <Row title='Featured Tv Shows' movies={tvTopReated} isBig={true}/>
         {/* Row */}
-       <Row title='Popular' movies={popular.reverse()} />
+       <Row title='Popular' movies={popular} />
         {/* BigRow */}
-       <Row title='documentary' movies={documentary}/>
-       <Row title='Comedy' movies={comedy.reverse()} isBig={true}/>
-       <Row title='Family' movies={family}/>
-       <Row title='History' movies={history.reverse()}/>
+       <Row title='Romance' movies={romance} />
+       <Row title='Action' movies={Action.reverse()} isBig={true}/>
+       <Row title='Kids' movies={kids}/>
+       <Row title='Horror' movies={horror}/>
+       <Row title='documentary' movies={documentary} isBig={true}/>
        </section>
       </main>
     </div>
@@ -50,9 +61,10 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   const tvTopReated = await fetch(API_REQUEST.tv_top_reted).then(res => res.json());
   const popular = await fetch(API_REQUEST.popular).then(res => res.json());
   const documentary = await fetch(API_REQUEST.documentary).then(res => res.json());
-  const comedy = await fetch(API_REQUEST.comedy).then(res => res.json());
-  const family = await fetch(API_REQUEST.family).then(res => res.json());
-  const history = await fetch(API_REQUEST.history).then(res => res.json());
+  const Action = await fetch(API_REQUEST.action).then(res => res.json());
+  const kids = await fetch(API_REQUEST.kids).then(res => res.json());
+  const horror = await fetch(API_REQUEST.horror).then(res => res.json());
+  const romance = await fetch(API_REQUEST.romance).then(res => res.json());
 
   // kirgandan poshqa page ga o'tib ketadi
   // if(trending.results.length) {
@@ -68,9 +80,10 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
       tvTopReated: tvTopReated.results,
       popular: popular.results,
       documentary: documentary.results,
-      comedy: comedy.results,
-      family: family.results,
-      history: history.results,
+      Action: Action.results,
+      kids: kids.results,
+      horror: horror.results,
+      romance: romance.results,
     }
   }
 }
@@ -80,7 +93,8 @@ interface HomeProps {
   tvTopReated: IMovie[]
   popular: IMovie[]
   documentary: IMovie[]
-  comedy: IMovie[]
-  family: IMovie[]
-  history: IMovie[]
+  Action: IMovie[]
+  kids: IMovie[]
+  horror: IMovie[]
+  romance: IMovie[]
 }
