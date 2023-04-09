@@ -3,7 +3,7 @@ import { AiFillCaretRight, AiFillCaretLeft } from 'react-icons/ai';
 import Thubnail from '../thubnail/thubnail';
 import { useRef, useState } from 'react';
 
-function Row({title, movies}:RowProps) {
+function Row({title, movies, isBig = false}:RowProps) {
   const [moved, setMoved] = useState<boolean>(false)
   const carouselRef = useRef<HTMLDivElement>(null)
 
@@ -44,9 +44,9 @@ function Row({title, movies}:RowProps) {
            ${!moved && 'hidden'}`}
            onClick={() => handleClick('left')}/>
          
-          <div ref={carouselRef} className='flex scrollbar-hide items-center space-x-1 overflow-hidden overflow-x-scroll md:space-x-4'>
+          <div ref={carouselRef} className={`flex scrollbar-hide items-center ${isBig ? 'space-x-0 md:space-x-0' : 'space-x-1 md:space-x-4'}  overflow-hidden overflow-x-scroll `}>
             {/* Thumbnail */}
-            {movies.map(movies => (<Thubnail key={movies.id} movie={movies}/>))}
+            {movies.map(movies => (<Thubnail key={movies.id} movie={movies} isBig={isBig}/>))}
           </div>
 
           <AiFillCaretRight className={`absolute top-0 bottom-0 right-2 z-40 m-auto h-6 w-6
