@@ -20,5 +20,7 @@
     @apply cursor-pointer text-sm font-light text-[#fff] hover:text-[#b3b3b3];
   }
   /* shu holatda yozsak buladi uzimiz yaratgan classga TW css tylellarini css da bersak buladi @pply ichiga qiymatlarni yozaveramz */
-
+  .input{
+    @apply w-full rounded bg-[#333] px-5 py-4 placeholder-[gray] outline-none focus:bg-[#454545];
+  }
 }
