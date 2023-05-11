@@ -5,3 +5,4 @@
 export {default as Header} from './header/header' // bittani uzida ham expotr ham import qilish
 export {default as Row} from './row/row'
 export {default as Hero} from './hero/hero'
+export {default as TextFild} from './text-fild/text-fild'
